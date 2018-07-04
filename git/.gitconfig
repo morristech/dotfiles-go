@@ -1,13 +1,28 @@
 [color]
 	ui = true
-[core]
-	editor = vim -c 'startinsert'
-	excludesfile = ~/.gitignore_global
 [user]
-	email = jeremy.saenz@gmail.com
-	name = Jeremy Saenz
+	name = Wade Morris
+	email = wade@morristech.co.za
+[core]
+	editor = subl
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+[credential]
+	helper = osxkeychain
 [github]
-	user = codegangsta
+	user = morristech
+[merge]
+   tool = studio
+[mergetool "studio"]
+   cmd = studio merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
+   trustExitCode = true
+   keepbackup = false
+[diff]
+   tool = studio
+[difftool "studio"]
+   cmd = studio diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
+   trustExitCode = true
+   keepbackup = false
 [alias]
   co = checkout
   c = commit -v
